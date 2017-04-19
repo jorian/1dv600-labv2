@@ -20,10 +20,6 @@ public class GetBookResource {
     @Path("{id}")
     public Response getBook(@PathParam("id") String id){
 
-        if(id == null || id.trim().length() == 0){
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-
         if(catalog.getBook(id) == null){
             return Response.status(Response.Status.NOT_FOUND).build();
         }

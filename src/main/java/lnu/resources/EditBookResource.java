@@ -28,10 +28,6 @@ public class EditBookResource {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
 
-        if(id == null || id.trim().length() == 0){
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-
         if (!catalog.editBook(toEdit)) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

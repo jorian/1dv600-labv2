@@ -37,6 +37,20 @@ public class catalog {
         return null;
     }
 
+    public boolean removeBook(String id) {
+        if (books != null) {
+            for (int i = 0; i < books.size(); i++) {
+                if (books.get(i).getId() != null) {
+                    if (books.get(i).getId().equals(id)) {
+                        books.remove(i);
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean editBook(book book) {
         if (books != null) {
             for (int i = 0; i < books.size(); i++) {

@@ -29,12 +29,12 @@ public class GetBooksResource {
 		catalog catalog = booksDAO.XMLToObject();
 		books = catalog.getListOfBooks();
 
-		System.out.println(books);
+		//System.out.println(books);
 
 		ObjectMapper mapper = new ObjectMapper();
 
 		String out;
-		System.out.println(books.toString());
+		//System.out.println(books.toString());
 		if (books != null || books.size() != 0) {
 			try {
 				out = mapper.writeValueAsString(books);
