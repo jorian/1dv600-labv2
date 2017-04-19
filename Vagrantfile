@@ -24,9 +24,9 @@ Vagrant.configure(2) do |config|
 
   SHELL
 
-  config.vm.provision "shell", run:"always", privileged:false, inline: <<-SHELL
-	  cd /vagrant
-	  gradle test run --info
-  SHELL
+#  config.vm.provision "shell", run:"always", privileged:false, inline: <<-SHELL
+#	  cd /vagrant
+#	  gradle test run --info
+#  SHELL
 
 end
