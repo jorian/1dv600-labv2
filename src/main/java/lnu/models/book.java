@@ -1,13 +1,20 @@
 package lnu.models;
 
 
+import org.codehaus.jackson.map.ObjectMapper;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.IOException;
+
+@XmlRootElement(name = "book")
 public class book {
     private String id;
     private String title;
     private String author;
     private String genre;
     private String price;
-    private String publishDate;
+    private String publish_date;
     private String description;
 
     public book() {
@@ -24,12 +31,20 @@ public class book {
         this.author = author;
         this.genre = genre;
         this.price = price;
-        this.publishDate = publishDate;
+        this.publish_date = publishDate;
         this.description = description;
     }
 
     public String toJson() {
-        return "";
+        ObjectMapper mapper = new ObjectMapper();
+        String out = "";
+
+        try {
+            out = mapper.writeValueAsString(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return out;
     }
 
     public String toString() {
@@ -37,7 +52,7 @@ public class book {
         output.append(this.title).append(this.author);
         return String.valueOf(output);
     }
-
+    @XmlAttribute
     public String getId() {
         return id;
     }
@@ -78,12 +93,12 @@ public class book {
         this.price = price;
     }
 
-    public String getPublishDate() {
-        return publishDate;
+    public String getPublish_date() {
+        return publish_date;
     }
 
-    public void setPublishDate(String publishDate) {
-        this.publishDate = publishDate;
+    public void setPublish_date(String publish_date) {
+        this.publish_date = publish_date;
     }
 
     public String getDescription() {
