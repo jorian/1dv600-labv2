@@ -19,6 +19,15 @@ public class book {
         this.author = author;
     }
 
+    public book(String title, String author, String genre, String price, String publishDate, String description) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.price = price;
+        this.publishDate = publishDate;
+        this.description = description;
+    }
+
     public String toString() {
         StringBuilder output = new StringBuilder();
         output.append(this.title).append(this.author);

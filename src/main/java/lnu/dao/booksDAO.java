@@ -12,40 +12,37 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
 public class booksDAO {
-    private static final String FILE_NAME = "src/main/java/lnu/resources/books.xml";
+    private String XMLLocation = "src/main/java/lnu/resources/books.xml";
 
-    // Method to import XML to java
-    public catalog BooksFromFile() {
-
-
+    public catalog XMLToObject() {
         try {
             JAXBContext context = JAXBContext.newInstance(catalog.class);
             Unmarshaller un = context.createUnmarshaller();
-            lnu.models.catalog catalog = (lnu.models.catalog) un.unmarshal(new File("books.xml"));
-
-            return catalog;
+            return (catalog) un.unmarshal(new File(XMLLocation));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
-        return null;
+    return null;
     }
 
-    // Method to export java to XML
-    public void BooksToFile(catalog listOfBooks) {
+
+    void ObjectToXML(catalog listOfBooks) {
         try {
             JAXBContext context = JAXBContext.newInstance(catalog.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-            // Write to System.out for debugging
-            //m.marshal(books, System.out);
-
-            // Write to File
-            m.marshal(listOfBooks, new File(FILE_NAME));
+            m.marshal(listOfBooks, new File(XMLLocation));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
     }
 
+    void setXMLLocation(String location) {
+        XMLLocation = location;
+    }
 
+    String getXMLLocation() {
+        return XMLLocation;
+    }
 }
