@@ -14,16 +14,13 @@ import static org.junit.Assert.*;
  */
 public class GetBooksResourceTest {
     @Test
-    public void getBooks() throws Exception {
-        //Set up
+    public void get2Books() throws Exception {
         GetBooksResource getBooksResource = new GetBooksResource();
 
         book book1 = new book("Masters of London", "Stimorol");
         book book2 = new book("Amsterdam", "Andre Hazes");
 
-        List<book> bookList = new ArrayList<>(2);
-        bookList.add(book1);
-        bookList.add(book2);
+        List<book> bookList = new ArrayList<>();
 
         getBooksResource.setBookslist(bookList);
 
@@ -33,4 +30,33 @@ public class GetBooksResourceTest {
         assertEquals(testoutput,getBooksResource.getBooks());
     }
 
+    @Test
+    public void get1Book() throws Exception {
+        GetBooksResource getBooksResource = new GetBooksResource();
+
+        book book1 = new book("Masters of London", "Stimorol");
+
+        List<book> bookList = new ArrayList<>();
+
+        getBooksResource.setBookslist(bookList);
+
+        ObjectMapper om = new ObjectMapper();
+        String testoutput = om.writeValueAsString(bookList);
+
+        assertEquals(testoutput,getBooksResource.getBooks());
+    }
+
+    @Test
+    public void get0Books() throws Exception {
+        GetBooksResource getBooksResource = new GetBooksResource();
+
+        List<book> bookList = new ArrayList<>();
+
+        getBooksResource.setBookslist(bookList);
+
+        ObjectMapper om = new ObjectMapper();
+        String testoutput = om.writeValueAsString(bookList);
+
+        assertEquals(testoutput,getBooksResource.getBooks());
+    }
 }
