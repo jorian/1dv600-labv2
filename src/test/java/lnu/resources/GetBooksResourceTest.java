@@ -16,12 +16,10 @@ public class GetBooksResourceTest {
     @Test
     public void get2Books() throws Exception {
         GetBooksResource getBooksResource = new GetBooksResource();
+        List<book> bookList = new ArrayList<>();
 
         book book1 = new book("Masters of London", "Stimorol");
         book book2 = new book("Amsterdam", "Andre Hazes");
-
-        List<book> bookList = new ArrayList<>();
-
         getBooksResource.setBookslist(bookList);
 
         ObjectMapper om = new ObjectMapper();
@@ -33,11 +31,9 @@ public class GetBooksResourceTest {
     @Test
     public void get1Book() throws Exception {
         GetBooksResource getBooksResource = new GetBooksResource();
-
-        book book1 = new book("Masters of London", "Stimorol");
-
         List<book> bookList = new ArrayList<>();
 
+        book book1 = new book("Masters of London", "Stimorol");
         getBooksResource.setBookslist(bookList);
 
         ObjectMapper om = new ObjectMapper();
@@ -49,7 +45,6 @@ public class GetBooksResourceTest {
     @Test
     public void get0Books() throws Exception {
         GetBooksResource getBooksResource = new GetBooksResource();
-
         List<book> bookList = new ArrayList<>();
 
         getBooksResource.setBookslist(bookList);
