@@ -28,6 +28,10 @@ public class book {
         this.description = description;
     }
 
+    public String toJson() {
+        return "";
+    }
+
     public String toString() {
         StringBuilder output = new StringBuilder();
         output.append(this.title).append(this.author);

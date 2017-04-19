@@ -21,4 +21,18 @@ public class catalog {
     public void setBooks(List<book> books) {
         this.books = books;
     }
+
+    public void addBook(book book) {
+        this.books.add(book);
+    }
+
+    public int getHighestId() {
+        int max = 0;
+        for (book i : books) {
+            int temp = Integer.valueOf(i.getId());
+            if (temp > max)
+                max = temp;
+        }
+        return max;
+    }
 }

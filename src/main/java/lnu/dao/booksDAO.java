@@ -12,9 +12,9 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
 public class booksDAO {
-    private String XMLLocation = "src/main/java/lnu/resources/books.xml";
+    private static String XMLLocation = "src/main/java/lnu/resources/books.xml";
 
-    public catalog XMLToObject() {
+    public static catalog XMLToObject() {
         try {
             JAXBContext context = JAXBContext.newInstance(catalog.class);
             Unmarshaller un = context.createUnmarshaller();
@@ -25,8 +25,7 @@ public class booksDAO {
     return null;
     }
 
-
-    void ObjectToXML(catalog listOfBooks) {
+    public static void ObjectToXML(catalog listOfBooks) {
         try {
             JAXBContext context = JAXBContext.newInstance(catalog.class);
             Marshaller m = context.createMarshaller();
@@ -38,7 +37,7 @@ public class booksDAO {
         }
     }
 
-    void setXMLLocation(String location) {
+    public static void setXMLLocation(String location) {
         XMLLocation = location;
     }
 

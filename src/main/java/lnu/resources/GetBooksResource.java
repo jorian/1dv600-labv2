@@ -44,7 +44,6 @@ public class GetBooksResource {
 			}
 		} else
 			return Response.status(Response.Status.NOT_FOUND).build();
-
 		return Response.ok(out,MediaType.APPLICATION_JSON).build();
 	}
 
@@ -55,5 +54,4 @@ public class GetBooksResource {
 	List<book> getBooksList() {
 		return this.books;
 	}
-
 }
