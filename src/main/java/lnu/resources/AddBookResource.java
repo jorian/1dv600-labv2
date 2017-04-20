@@ -21,7 +21,7 @@ public class AddBookResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addBook(String json){
         catalog catalog = booksDAO.XMLToObject();
-        System.out.println("String " + json);
+        System.out.println(json);
         book toAdd;
 
         try{
@@ -34,6 +34,8 @@ public class AddBookResource {
         if(toAdd.getId() == null){
             toAdd.setId((String.valueOf(catalog.getHighestId() + 1)));
         }
+
+        System.out.println(toAdd);
 
         catalog.addBook(toAdd);
         booksDAO.ObjectToXML(catalog);

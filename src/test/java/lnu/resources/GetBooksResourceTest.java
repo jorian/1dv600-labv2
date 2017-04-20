@@ -18,8 +18,8 @@ public class GetBooksResourceTest {
         GetBooksResource getBooksResource = new GetBooksResource();
         List<book> bookList = new ArrayList<>();
 
-        book book1 = new book("Masters of London", "Stimorol");
-        book book2 = new book("Amsterdam", "Andre Hazes");
+        //book book1 = new book("Masters of London", "Stimorol");
+        //book book2 = new book("Amsterdam", "Andre Hazes");
         getBooksResource.setBookslist(bookList);
 
         ObjectMapper om = new ObjectMapper();
@@ -33,7 +33,7 @@ public class GetBooksResourceTest {
         GetBooksResource getBooksResource = new GetBooksResource();
         List<book> bookList = new ArrayList<>();
 
-        book book1 = new book("Masters of London", "Stimorol");
+        //book book1 = new book("Masters of London", "Stimorol");
         getBooksResource.setBookslist(bookList);
 
         ObjectMapper om = new ObjectMapper();

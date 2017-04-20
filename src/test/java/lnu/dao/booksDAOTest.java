@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * Created by n41r0j on 2017-04-19.
  */
 public class booksDAOTest {
-    book testBook = new book("Foundation", "Isaac Asimov", "Science Fiction", "164", "1951-08-21","Foundation is the first novel in Isaac Asimovs Foundation Trilogy (later expanded into The Foundation Series). Foundation is a cycle of five interrelated short stories, first published as a single book by Gnome Press in 1951. Collectively they tell the story of the Foundation, an institute to preserve the best of galactic civilization after the collapse of the Galactic Empire.");
+    book testBook = new book("1", "Foundation", "Isaac Asimov", "Science Fiction", "164", "1951-08-21","Foundation is the first novel in Isaac Asimovs Foundation Trilogy (later expanded into The Foundation Series). Foundation is a cycle of five interrelated short stories, first published as a single book by Gnome Press in 1951. Collectively they tell the story of the Foundation, an institute to preserve the best of galactic civilization after the collapse of the Galactic Empire.");
     List<book> bookListExpected = new ArrayList<>();
 
     @Test

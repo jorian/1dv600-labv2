@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.*;
 public class catalog {
 
     @XmlElement(name = "book")
-    private List<book> books = null;
+    private List<book> books = new ArrayList<>(); //Was null, took a while to replace with Arraylist
 
     public List<book> getListOfBooks() {
         return books;
@@ -23,6 +23,8 @@ public class catalog {
     }
 
     public void addBook(book book) {
+        System.out.println(book);
+        assert book!= null;
         this.books.add(book);
     }
 

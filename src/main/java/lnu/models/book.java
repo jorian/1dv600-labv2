@@ -4,6 +4,7 @@ package lnu.models;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.IOException;
 
@@ -14,25 +15,26 @@ public class book {
     private String author;
     private String genre;
     private String price;
-    private String publish_date;
+    private String publishDate;
     private String description;
 
-    public book() {
+    //public book(String title, String author) {
+    //    this.title = title;
+    //    this.author = author;
+    //}
 
-    }
-
-    public book(String title, String author) {
-        this.title = title;
-        this.author = author;
-    }
-
-    public book(String title, String author, String genre, String price, String publishDate, String description) {
+    public book(String id, String title, String author, String genre, String price, String publishDate, String description) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.price = price;
-        this.publish_date = publishDate;
+        this.publishDate = publishDate;
         this.description = description;
+    }
+
+    public book() {
+
     }
 
     public String toJson() {
@@ -49,7 +51,11 @@ public class book {
 
     public String toString() {
         StringBuilder output = new StringBuilder();
-        output.append(this.title).append(this.author);
+        output.append(this.id).append(", ")
+                .append(this.title).append(", ")
+                .append(this.author).append(", ")
+                .append(this.genre).append(", ")
+                .append(this.price).append(". ");
         return String.valueOf(output);
     }
     @XmlAttribute
@@ -93,12 +99,12 @@ public class book {
         this.price = price;
     }
 
-    public String getPublish_date() {
-        return publish_date;
+    public String getPublishDate() {
+        return publishDate;
     }
 
-    public void setPublish_date(String publish_date) {
-        this.publish_date = publish_date;
+    public void setPublishDate(String publishDate) {
+        this.publishDate = publishDate;
     }
 
     public String getDescription() {
