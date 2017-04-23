@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<catalog>
+   <book id="1">
+      <author>book1</author>
+      <title>book1</title>
+      <genre>book1</genre>
+      <price>999</price>
+      <publishDate>1999-09-09</publishDate>
+      <description>book1</description>
+   </book>
+   <book id="2">
+      <author>book2</author>
+      <title>book2</title>
+      <genre>book2</genre>
+      <price>999</price>
+      <publishDate>1999-09-09</publishDate>
+      <description>book2</description>
+   </book>
+</catalog>

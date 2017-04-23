@@ -18,11 +18,6 @@ public class book {
     private String publishDate;
     private String description;
 
-    //public book(String title, String author) {
-    //    this.title = title;
-    //    this.author = author;
-    //}
-
     public book(String id, String title, String author, String genre, String price, String publishDate, String description) {
         this.id = id;
         this.title = title;
@@ -37,6 +32,7 @@ public class book {
 
     }
 
+    // Returns a JSON representation of this book object.
     public String toJson() {
         ObjectMapper mapper = new ObjectMapper();
         String out = "";

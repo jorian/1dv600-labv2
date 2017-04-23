@@ -14,6 +14,7 @@ import java.io.File;
 public class booksDAO {
     private static String XMLLocation = "src/main/java/lnu/resources/books.xml";
 
+    // This method converts the XML stored in XMLLocation to a catalog object and returns the catalog to the caller.
     public static catalog XMLToObject() {
         try {
             JAXBContext context = JAXBContext.newInstance(catalog.class);
@@ -25,6 +26,7 @@ public class booksDAO {
     return null;
     }
 
+    // Converts a catalog to XML:
     public static void ObjectToXML(catalog listOfBooks) {
         try {
             JAXBContext context = JAXBContext.newInstance(catalog.class);
@@ -37,6 +39,7 @@ public class booksDAO {
         }
     }
 
+    // For testing purposes, it should be able to change the location of the XML.
     public static void setXMLLocation(String location) {
         XMLLocation = location;
     }

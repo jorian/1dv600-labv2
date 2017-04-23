@@ -11,8 +11,11 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class catalog {
 
+    // These methods are called from the corresponding Resource classes.
+    // This catalog should always be up to date, by using booksDAO, before doing operations!
+
     @XmlElement(name = "book")
-    private List<book> books = new ArrayList<>(); //Was null, took a while to replace with Arraylist
+    private List<book> books = new ArrayList<>();
 
     public List<book> getListOfBooks() {
         return books;
@@ -67,6 +70,7 @@ public class catalog {
         return false;
     }
 
+    // This class is called by addNewBook, to create a book id.
     public int getHighestId() {
         int max = 0;
         if (books != null) {
