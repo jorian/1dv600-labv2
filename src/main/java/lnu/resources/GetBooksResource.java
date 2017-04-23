@@ -28,13 +28,12 @@ public class GetBooksResource {
 	public Response getBooks() {
 		catalog catalog = booksDAO.XMLToObject();
 		books = catalog.getListOfBooks();
-
-		//System.out.println(books);
-
 		ObjectMapper mapper = new ObjectMapper();
-
 		String out;
-		//System.out.println(books.toString());
+
+		// Only create a JSON string when books is not empty.
+		// If books is empty, a 404 is returned.
+		// If books were converted, the response to the browser contains the JSON string.
 		if (books != null || books.size() != 0) {
 			try {
 				out = mapper.writeValueAsString(books);

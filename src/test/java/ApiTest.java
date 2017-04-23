@@ -49,6 +49,7 @@ public class ApiTest {
     public void testAddBook() {
         // Store current catalog:
         catalog initialCatalog = booksDAO.XMLToObject();
+        System.out.println(initialCatalog.getListOfBooks());
 
         book testBookToAdd = new book("767", "TestTitle", "TestAuthor", "TestGenre", "123", "2009-09-09", "TestDescription");
 
@@ -105,10 +106,10 @@ public class ApiTest {
         // Empty bookID in url should return 404:
         assertThat(resources.client().target("/books/ ").request().delete().getStatus())
                 .isEqualTo(404);
-        // A 404 status cannot be given, since the book must exist before being able to delete it, GUI-wise.
 
         // Clean up (restore initial book catalog):
         booksDAO.ObjectToXML(initialCatalog);
+        System.out.println(booksDAO.XMLToObject().getListOfBooks());
         gc();
     }
 }

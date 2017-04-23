@@ -36,8 +36,6 @@ public class booksDAOTest {
         catalog cat = booksDAO.XMLToObject();
         bookListFromDAO = cat.getListOfBooks();
 
-        //System.out.println();
-
         assertEquals(bookListExpected.toString(),bookListFromDAO.toString());
     }
 

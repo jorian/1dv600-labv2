@@ -17,11 +17,16 @@ import javax.ws.rs.core.Response;
 @Path("/books")
 public class AddBookResource {
 
+    /*
+    Basic flow is as follows:
+    First, a catalog is fetched with the currently stored books and the book object
+     is created.
+     */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addBook(String json){
+
         catalog catalog = booksDAO.XMLToObject();
-        System.out.println(json);
         book toAdd;
 
         try{
@@ -31,11 +36,16 @@ public class AddBookResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
+        // If the book has no ID, the ID is created by taking the highest id of the current set of books
+        // and add 1 to it.
+
         if(toAdd.getId() == null){
             toAdd.setId((String.valueOf(catalog.getHighestId() + 1)));
         }
 
         System.out.println(toAdd);
+
+        //The book is added to the catalog, the XML is updated and a correct response is returned.
 
         catalog.addBook(toAdd);
         booksDAO.ObjectToXML(catalog);

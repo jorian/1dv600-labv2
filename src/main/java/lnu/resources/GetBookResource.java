@@ -20,10 +20,13 @@ public class GetBookResource {
     @Path("{id}")
     public Response getBook(@PathParam("id") String id){
 
-        if(catalog.getBook(id) == null){
+        // If the id does not exist in the catalog, a null object is returned from the getBook method
+        // returning a 404 to the browser.
+        if (catalog.getBook(id) == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
+        // Otherwise, a book has been found and is returned as a JSON string.
         return Response.ok("[" + catalog.getBook(id).toJson() + "]",MediaType.APPLICATION_JSON).build();
     }
 }
